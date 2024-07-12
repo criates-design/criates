@@ -1,7 +1,17 @@
 import getUserById from '@/lib/services/user/get-user-by-id'
 import { NextRequest, NextResponse } from 'next/server'
 
-export async function GET(req: NextRequest, { params }: { params: { userId: string } }) {
+type UserParams = {
+    params: {
+        userId: string
+    }
+}
+
+export async function GET(
+    _req: NextRequest, 
+    { params }: UserParams
+) {
+
     const { userId } = params
     
     if (!userId) {
