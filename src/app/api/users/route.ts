@@ -1,8 +1,10 @@
 import createNewUser from '@/lib/services/user/create-new-user'
+import getUserList from '@/lib/services/user/get-user-list'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET() {
-  return NextResponse.json('Healthy')
+    const userList = await getUserList()
+    return NextResponse.json(userList)
 }
 
 export async function POST(request: NextRequest) {
@@ -25,6 +27,7 @@ export async function POST(request: NextRequest) {
             role,
             document
         })
+
     
         return NextResponse.json(user, { status: 201 })
     } catch (error) {
