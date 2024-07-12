@@ -5,7 +5,7 @@ type CreateUserParams = {
     email: string
     image?: string
     role: string
-    document ?: string
+    document?: string
 }
 
 export default function createNewUser(User: CreateUserParams) {
