@@ -13,10 +13,10 @@ export default async function getUserList(): Promise<User[]> {
     try {
         const users = await prisma.user.findMany()
         const userList: User[] = []
-        users.forEach((user) => {
+        users.forEach((user: User) => {
             userList.push({
                 id: user.id,
-                name: user.name!,
+                name: user.name,
                 email: user.email,
                 image: user.image!,
                 role: user.role,
