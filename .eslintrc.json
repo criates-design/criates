@@ -27,7 +27,7 @@
   ],
   "rules": {
       "semi": ["error", "never"], // Proibir ponto e vírgula
-      "no-console": "error", // Proibir console.log
+      "quotes": ["error", "single"], // Aspas simples
       "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }], // Máximo de uma linha vazia
       "@typescript-eslint/no-explicit-any": "off"
   }
