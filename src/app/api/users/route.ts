@@ -27,7 +27,6 @@ export async function POST(request: NextRequest) {
             role,
             document
         })
-
     
         return NextResponse.json(user, { status: 201 })
     } catch (error) {

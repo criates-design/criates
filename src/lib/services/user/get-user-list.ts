@@ -13,7 +13,7 @@ export default async function getUserList(): Promise<User[]> {
     try {
         const users = await prisma.user.findMany()
         const userList: User[] = []
-        users.forEach((user: User) => {
+        users.forEach((user: any) => {
             userList.push({
                 id: user.id,
                 name: user.name,

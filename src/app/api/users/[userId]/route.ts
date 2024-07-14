@@ -20,6 +20,5 @@ export async function GET(
 
     const user = await getUserById(userId)
 
-
     return NextResponse.json({ user })
 }
