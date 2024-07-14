@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx'
 
 type LoginComponentProps = {
     loginRole: 'DESIGNER' | 'USER';
@@ -61,6 +61,6 @@ export default function LoginComponent(LoginComponent: LoginComponentProps) {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 

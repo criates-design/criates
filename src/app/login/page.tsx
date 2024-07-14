@@ -1,4 +1,4 @@
-import LoginComponent from "../view/components/LoginComponent";
+import LoginComponent from '../view/components/LoginComponent'
 
 export default function Login() {
     return (
@@ -7,5 +7,5 @@ export default function Login() {
 
             <LoginComponent loginRole="DESIGNER" />
         </div>
-    );
+    )
 }

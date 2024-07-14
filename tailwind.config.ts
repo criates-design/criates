@@ -82,7 +82,7 @@ const config: Config = {
   },
   plugins: [daisyui],
   daisyui: {
-    themes: ["light"]
+    themes: ['light']
   }
 }
 export default config
