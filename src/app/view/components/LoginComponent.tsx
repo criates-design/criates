@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
 type LoginComponentProps = {
-    loginRole: 'DESIGNER' | 'USER';
+    loginRole: 'DESIGNER' | 'USER'
 }
 
 export default function LoginComponent(LoginComponent: LoginComponentProps) {
