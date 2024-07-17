@@ -4,7 +4,7 @@ export default function SideDrawer() {
       <img src="logo.svg" />
       <div className="flex justify-between h-5/6 flex-col">
         <div className="flex flex-col p-4 gap-10">
-          <button className="btn">
+          <button>
             <img src="dashboard-icon.svg" />
           </button>
           <button>
