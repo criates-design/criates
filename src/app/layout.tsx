@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import SideDrawer from './view/components/SideDrawer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +17,6 @@ export default function RootLayout({
   return (
     <html data-theme="light" lang="en">
       <body className={inter.className}>
-        <SideDrawer />
         {children}</body>
     </html>
   )
