@@ -1,3 +1,115 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-BlackSlanted.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-BoldSlanted.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-ExtraBold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-ExtraBoldSlanted.otf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-ExtraLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-ExtraLightSlanted.otf') format('opentype');
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-LightSlanted.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-MediumSlanted.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-RegularSlanted.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Carbona';
+    src: url('/fonts/Carbona-SemiBoldSlanted.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+  }
+  

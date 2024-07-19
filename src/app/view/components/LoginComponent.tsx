@@ -11,18 +11,18 @@ export default function LoginComponent(LoginComponent: LoginComponentProps) {
             'bg-white': loginRole === 'USER',
             'bg-criatesPurple': loginRole === 'DESIGNER',
         })}>
-            <div className="flex flex-col  mt-[15%] w-[60%] h-[75%]">
+            <div className="flex flex-col  mt-[15%] w-[420px] h-[75%]">
                 <div className="flex flex-col h-[13%] justify-between">
                     {loginRole === 'DESIGNER' &&
                         <>
-                            <span className='text-2xl text-white'>Fazer login como designer</span>
-                            <span className='text-sm text-black'>Faça login com sua conta de designer.</span>
+                            <span className='text-2xl text-white font-medium'>Fazer login como designer</span>
+                            <span className='text-sm text-criatesGreen font-extralight'>Faça login com sua conta de designer.</span>
                         </>
                     }
                     {loginRole === 'USER' &&
                         <>
-                            <span className='text-2xl text-black'>Fazer login como cliente</span>
-                            <span className='text-sm text-black'>Faça login com sua conta de cliente.</span>
+                            <span className='text-2xl text-black font-medium'>Fazer login como cliente</span>
+                            <span className='text-sm text-black font-extralight'>Faça login com sua conta de cliente.</span>
                         </>
                     }
                 </div>
@@ -37,25 +37,25 @@ export default function LoginComponent(LoginComponent: LoginComponentProps) {
 
                 <div className=" flex h-[10%]">
                     <div className="flex items-center">
-                        <input type="checkbox" className="checkbox bg-criatesGray" />
-                        <span className="ml-2 text-sm text-black">Lembrar-me</span>
+                        <input type="checkbox" className="ml-1 checkbox bg-criatesGray" />
+                        <span className="mt-1 ml-2 text-sm text-gray-300">Lembrar-me</span>
                     </div>
                     <div className="flex items-center ml-auto cursor-pointer">
-                        <span className="text-sm text-criatesGreen">Esqueci a senha</span>
+                        <span className="text-sm mt-1 text-criatesGreen">Esqueci a senha</span>
                     </div>
                 </div>
 
                 <div className="flex justify-center mt-auto">
                     {loginRole === 'DESIGNER' &&
                         <>
-                            <span className="text-sm text-black">Quer trabalhar com a gente?</span>
-                            <span className="text-sm text-criatesGreen cursor-pointer ml-2">Faça uma aplicação!</span>
+                            <span className="text-sm text-gray-200 font-extralight">Quer trabalhar com a gente?</span>
+                            <span className="text-sm text-criatesGreen font-light cursor-pointer ml-2">Faça uma aplicação!</span>
                         </>
                     }
                     {loginRole === 'USER' &&
                         <>
-                            <span className="text-sm text-black">Não tem uma conta?</span>
-                            <span className="text-sm text-criatesGreen cursor-pointer ml-2">Registre-se!</span>
+                            <span className="text-sm text-gray-400 font-extralight">Não tem uma conta?</span>
+                            <span className="text-sm text-criatesGreen font-light cursor-pointer ml-2">Registre-se!</span>
                         </>
                     }
                 </div>
