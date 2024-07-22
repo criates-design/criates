@@ -9,9 +9,7 @@ export default function Dashboard() {
       </div>
 
       <div className="flex flex-col justify-center items-center gap-4 h-[100vh] min-w-[100vw]">
-        <div>
-          <ArtDownload />
-        </div>
+          <ArtDownload status='concluido'/>
       </div>
     </div>
 

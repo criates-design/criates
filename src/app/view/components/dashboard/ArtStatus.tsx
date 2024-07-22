@@ -1,6 +1,6 @@
 
 type ArtStatusComponentProps = {
-    status: 'em andamento' | 'concluido';
+    status: 'em andamento' | 'concluido'
 }
 
 export default function ArtStatusComponent(ArtStatusComponentProps: ArtStatusComponentProps) {
