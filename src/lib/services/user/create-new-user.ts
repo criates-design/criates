@@ -5,11 +5,12 @@ type CreateUserParams = {
     email: string
     image?: string
     role: 'DESIGNER' | 'USER'
+    password: string
     document?: string
 }
 
 export default function createNewUser(User: CreateUserParams) {
-    const { name, email, image, role, document } = User
+    const { name, email, image, role, document, password } = User
 
     const newUser = prisma.user.create({
         data: {
@@ -17,6 +18,7 @@ export default function createNewUser(User: CreateUserParams) {
             email,
             image,
             role,
+            password,
             document
         }
     })

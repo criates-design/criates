@@ -1,11 +1,23 @@
+'use client'
+
 import clsx from 'clsx'
+import useClient from '@/lib/useClient'
+import { useState } from 'react'
 
 type LoginComponentProps = {
     loginRole: 'DESIGNER' | 'USER'
 }
 
 export default function LoginComponent(LoginComponent: LoginComponentProps) {
+    const client = useClient()
     const { loginRole } = LoginComponent
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleLogin = async (email: string, password: string) => {
+        await client.login({email, password})
+    }
+    
     return (
         <div className={clsx('flex justify-center items-center flex-col w-[35%] h-[700px] rounded-[30px]', {
             'bg-white': loginRole === 'USER',
@@ -28,9 +40,9 @@ export default function LoginComponent(LoginComponent: LoginComponentProps) {
                 </div>
 
                 <div className="mt-4 flex flex-col h-[220px]">
-                    <input type="text" className=" input input-bordered bg-criatesGray max-w-[100%]  h-[70px]" />
-                    <input type="password" className="input input-bordered bg-criatesGray mt-4 max-w-[100%]  h-[70px]" />
-                    <span className="btn bg-criatesGreen border-none max-w-[100%] mt-4 h-[70px] rounded-[15px]">
+                    <input type="text" className=" input input-bordered bg-criatesGray max-w-[100%]  h-[70px]" onChange={(e) => setEmail(e.target.value)} />
+                    <input type="password" className="input input-bordered bg-criatesGray mt-4 max-w-[100%]  h-[70px]" onChange={(e) => setPassword(e.target.value)}/>
+                    <span className="btn bg-criatesGreen border-none max-w-[100%] mt-4 h-[70px] rounded-[15px]" onClick={() => handleLogin(email, password)}>
                         <span className="mr-64 text-white text-[20px] font-normal">entrar</span>
                     </span>
                 </div>
