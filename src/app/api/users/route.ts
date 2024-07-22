@@ -8,7 +8,7 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-    const { name, email, image, role, document } = await request.json()
+    const { name, email, image, role, document, password } = await request.json()
 
     try {
 
@@ -25,6 +25,7 @@ export async function POST(request: NextRequest) {
             email,
             image,
             role,
+            password,
             document
         })
     
