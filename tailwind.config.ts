@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'carbona': ['Carbona', 'sans-serif'],
+      },
       fontSize: {
         'xs': [
           '12px',
