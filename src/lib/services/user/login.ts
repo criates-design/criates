@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma/prismaClient'
 
-type LoginUserParams = {
+export type LoginUserParams = {
     email: string
     password: string
 }
