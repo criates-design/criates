@@ -6,13 +6,13 @@ export default class Client {
 
   constructor() {
     this.axios = axios.create({
-      baseURL: process.env.BASE_URL + '/api',
+      baseURL: process.env.BASE_URL,
       withCredentials: true
     })
   }
 
   async login(body: LoginUserParams) {
-    return (await this.axios.post('users/login', body)).data
+    return (await this.axios.post('api/users/login', body)).data
   }
 
 }
