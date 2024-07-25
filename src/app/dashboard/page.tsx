@@ -4,6 +4,7 @@ import ArtStatusComponent from '../view/components/dashboard/ArtStatus'
 import AllArtsComponent from '../view/components/dashboard/AllArts'
 import DownloadsComponent from '../view/components/dashboard/Downloads'
 import UpgradePlanComponent from '../view/components/dashboard/UpgradePlan'
+// import RequestServiceComponent from '../view/components/requestService/RequestServiceComponent'
 import SideDrawer from '../view/components/SideDrawer'
 
 export default function Dashboard() {
@@ -31,5 +32,14 @@ export default function Dashboard() {
             </div>
         </div>
 
+        // <div className='flex h-[100vh], w-[100vw]'>
+        //     <div>
+        //         <SideDrawer />
+        //     </div>
+
+        //     <div className='flex flex-col justify-center items-center h-[100vh] min-w-[100vw]'>
+        //         < RequestServiceComponent totalCredits={200} />
+        //     </div>
+        // </div>
     )
 }
