@@ -1,8 +1,8 @@
-import ProfileComponent from '../view/components/profile/ProfileComponent'
-import ProfileOptionsComponent from '../view/components/profile/ProfileOptionsComponent'
-import ProfileUpgradePlanComponent from '../view/components/profile/ProfileUpgradePlanComponent'
-import SideDrawer from '../view/components/SideDrawer'
-import ProfileCredits from '../view/components/profile/ProfileCredits'
+import ProfileComponent from '../../view/components/profile/ProfileComponent'
+import ProfileOptionsComponent from '../../view/components/profile/ProfileOptionsComponent'
+import ProfileUpgradePlanComponent from '../../view/components/profile/ProfileUpgradePlanComponent'
+import SideDrawer from '../../view/components/SideDrawer'
+import ProfileCredits from '../../view/components/profile/ProfileCredits'
 
 export default function Profile() {
     return (

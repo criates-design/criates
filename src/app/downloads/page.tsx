@@ -1,5 +1,5 @@
-import SideDrawer from '../view/components/SideDrawer'
-import ArtDownload from '../view/components/download/ArtDownload'
+import SideDrawer from '../../view/components/SideDrawer'
+import ArtDownload from '../../view/components/download/ArtDownload'
 
 export default function Dashboard() {
   return (
