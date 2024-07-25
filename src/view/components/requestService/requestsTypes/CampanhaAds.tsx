@@ -1,7 +1,7 @@
 export default function CampanhaAds() {
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     return (
-        <label className="form-control w-full mt-10 font-normal">
+        <label className="form-control w-full mt-2 font-normal">
             <div className="label">
                 <span className="label-text text-base font-normal">
                     Quantos desdobramentos necessários?

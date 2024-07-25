@@ -22,7 +22,7 @@ export default function Story() {
     }
 
     return (
-        <label className="form-control w-full max-w-xs mt-14 font-normal">
+        <label className="form-control w-full max-w-xs mt-2 font-normal">
             <div className="label">
                 <span className="label-text text-base font-normal">
                     O post vai ser animado?

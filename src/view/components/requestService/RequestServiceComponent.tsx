@@ -10,11 +10,11 @@ export default function RequestServiceComponent(RequestServiceProps: RequestServ
     const { totalCredits } = RequestServiceProps
     const [credits, setCredits] = useState(0)
     const [artType, setArtType] = useState('')
-    
+
     const creditsValue = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedArtType = event.target.value
         setArtType(selectedArtType)
-    
+
         switch (artType) {
             case 'post':
                 setCredits(2)
@@ -41,10 +41,13 @@ export default function RequestServiceComponent(RequestServiceProps: RequestServ
     }
 
     return (
-        <div className="flex flex-col bg-criatesGray w-[45%] h-[70%] rounded-2xl font-carbona justify-center items-center">
-            <div className="flex flex-col w-[80%] h-[80%] ml-8">
+        <div className="flex flex-col bg-criatesGray w-[45%] h-[95%] rounded-2xl font-carbona items-center">
+            <form method='dialog'>
+                <button className="btn btn-sm btn-circle btn-ghost relative left-96 top-4">✕</button>
+            </form>
+            <div className="flex flex-col w-[80%] h-[90%] ml-8 mt-4">
                 <span className="font-medium text-2xl">Solicitar Serviço</span>
-                <label className="form-control w-full max-w-xs mt-10">
+                <label className="form-control w-full max-w-xs mt-5">
                     <div className="label">
                         <span className="label-text text-base font-normal">O que vamos fazer hoje?</span>
                     </div>
@@ -61,7 +64,19 @@ export default function RequestServiceComponent(RequestServiceProps: RequestServ
 
                 <RequestTypeService type={artType} />
 
-                <label className="form-control w-full mt-14 font-normal">
+                <label className="form-control w-full mt-5">
+                    <div className="label">
+                        <span className="label-text text-xl font-medium">Briefing</span>
+                    </div>
+                    <textarea className="textarea h-[200px] w-[650px] bg-white mt-1"></textarea>
+                </label>
+
+                <div className='bg-criatesGreen hover:bg-hover:bg-#97A953 flex w-[250px] h-[40px] rounded-lg mt-4 justify-center items-center'>
+                    <img className="w-4 cursor-pointer" src="link-alt.svg" />
+                    <span className='text-sm font-medium ml-4'>Enviar arquivos adicionais</span>
+                </div>
+
+                <label className="form-control w-full mt-3 font-normal">
                     <div className="label">
                         <span className="label-text text-base font-normal">
                             Créditos a serem debitados
@@ -78,9 +93,9 @@ export default function RequestServiceComponent(RequestServiceProps: RequestServ
 
                     </div>
                     <div className="flex gap-6 mt-5 font-light text-sm ml-1">
-                            <span className="text-gray-400">Saldo após a compra</span>
-                            <span className="font-normal">{totalCredits - credits}</span>
-                        </div>
+                        <span className="text-gray-400">Saldo após a compra</span>
+                        <span className="font-normal">{totalCredits - credits}</span>
+                    </div>
                 </label>
             </div>
         </div>
