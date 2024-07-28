@@ -29,10 +29,21 @@ export default function DownloadsLists() {
         }
     }
 
+    const formatDate = (date: string) => {
+        return new Date(date).toLocaleDateString('pt-BR')
+    }
+
     return (
         <div className='w-[1400px] gap-2 flex flex-col'>
             {arts.result?.arts.map((art: any) => (
-                <ArtDownload key={art.id} status={art.status} />
+                <ArtDownload 
+                    key={art.id} 
+                    status={art.status}
+                    artName={'arte'}
+                    createdAt={formatDate(art.createdAt)}
+                    concludedAt={formatDate(art.createdAt)}
+                    downloadLink={'downloadLink'}
+                    />
             ))}
             {(arts.status === 'not-requested' || arts.loading) && Array.from({ length: 6 }).map((_, index) => (
                 <div className="skeleton h-28 w-[1400px]" key={index}></div>
