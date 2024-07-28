@@ -1,5 +1,5 @@
-import SideDrawer from '../../view/components/SideDrawer'
-import ArtDownload from '../../view/components/download/ArtDownload'
+import DownloadsLists from '@/view/components/download/DownloadsLists'
+import SideDrawer from '@/view/components/SideDrawer'
 
 export default function Dashboard() {
   return (
@@ -9,14 +9,7 @@ export default function Dashboard() {
       </div>
 
       <div className="flex flex-col justify-center items-center gap-4 h-[100vh] min-w-[100vw]">
-        <div className='w-[1400px] gap-2 flex flex-col'>
-          <ArtDownload status='concluido'/>
-          <ArtDownload status='concluido'/>
-          <ArtDownload status='concluido'/>
-          <ArtDownload status='concluido'/>
-          <ArtDownload status='concluido'/>
-          <ArtDownload status='concluido'/>
-        </div>
+        <DownloadsLists />
       </div>
     </div>
 
