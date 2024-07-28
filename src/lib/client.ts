@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios'
 import { LoginUserParams } from './services/user/login'
-import { DownloadArtsList } from './services/arts/get-arts-to-download'
+import { ArtsList } from './services/arts/get-arts'
 
 export default class Client {
   private axios: AxiosInstance 
@@ -16,7 +16,11 @@ export default class Client {
     return (await this.axios.post('api/users/login', body)).data
   }
 
-  async getDownloadsList(page: number, requesterId: string): Promise<DownloadArtsList> {
+  async getDownloadsList(page: number, requesterId: string): Promise<ArtsList> {
+    return (await this.axios.get(`api/arts?page=${page}&requesterId=${requesterId}`)).data
+  }
+
+  async getArtsList(page: number, requesterId: string): Promise<ArtsList> {
     return (await this.axios.get(`api/arts?page=${page}&requesterId=${requesterId}`)).data
   }
 

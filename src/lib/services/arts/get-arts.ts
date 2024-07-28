@@ -1,13 +1,13 @@
 import { prisma } from '@/lib/prisma/prismaClient'
 import { Art } from '@prisma/client'
 
-export type DownloadArtsList = {
+export type ArtsList = {
     arts: Art[],
     totalPages: number
 }
 
-export default async function getArtsToDownload(page: number, requesterId: string): Promise<DownloadArtsList> {
-    const itemsPerPage = 6
+export default async function getArts(page: number, requesterId: string): Promise<ArtsList> {
+    const itemsPerPage = 3
     const skip = (page - 1) * itemsPerPage
 
     const arts = await prisma.art.findMany({

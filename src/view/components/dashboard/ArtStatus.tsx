@@ -1,14 +1,17 @@
 
 type ArtStatusComponentProps = {
     status: 'em andamento' | 'concluido'
+    artName: string
+    createdAt: string
+    concludedAt: string
 }
 
 export default function ArtStatusComponent(ArtStatusComponentProps: ArtStatusComponentProps) {
-    const { status } = ArtStatusComponentProps
+    const { status, artName } = ArtStatusComponentProps
     return (
         <div className="bg-criatesGray w-[380px] h-[370px] rounded-2xl flex justify-center items-center font-carbona">
             <div className="flex flex-col w-[80%] h-[80%]">
-                <span className="text-2xl cursor-default font-medium">Arte xyz</span>
+                <span className="text-2xl cursor-default font-medium">{artName}</span>
                 <span className="h-[50%] mt-8 text-sm leading-6 break-words font-light">emandamento emandamento emandamentoemandamentoemandamentoemandamento</span>
                 <div className='flex mt-10 items-center'>
                     {status === 'em andamento' &&
