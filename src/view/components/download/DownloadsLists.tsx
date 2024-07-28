@@ -9,13 +9,13 @@ export default function DownloadsLists() {
     const requesterId = 'clz5qp4uw0000hsen1c8quesr'
     const [page, setPage] = useState(1)
 
-    const arts = useAsyncCallback(async (page) => {
+    const arts = useAsyncCallback(async (page: number) => {
         return await client.getDownloadsList(page, requesterId)
     })
 
     useEffect(() => {
         arts.execute(page)
-    }, [page]) // Adicionar 'page' como dependência para executar novamente quando a página mudar
+    }, [page])
 
     const nextPage = () => {
         if (page < (arts.result?.totalPages || 0)) {
@@ -35,19 +35,27 @@ export default function DownloadsLists() {
 
     return (
         <div className='w-[1400px] gap-2 flex flex-col'>
-            {arts.result?.arts.map((art: any) => (
-                <ArtDownload 
-                    key={art.id} 
-                    status={art.status}
-                    artName={'arte'}
-                    createdAt={formatDate(art.createdAt)}
-                    concludedAt={formatDate(art.createdAt)}
-                    downloadLink={'downloadLink'}
-                    />
-            ))}
-            {(arts.status === 'not-requested' || arts.loading) && Array.from({ length: 6 }).map((_, index) => (
-                <div className="skeleton h-28 w-[1400px]" key={index}></div>
-            ))}
+            {arts.loading ? (
+                Array.from({ length: 6 }).map((_, index) => (
+                    <div className="skeleton h-28 w-[1400px]" key={index}></div>
+                ))
+            ) : (
+                <>
+                    {arts.result?.arts.map((art: any) => (
+                        <ArtDownload 
+                            key={art.id} 
+                            status={art.status}
+                            artName={'arte'}
+                            createdAt={formatDate(art.createdAt)}
+                            concludedAt={formatDate(art.createdAt)}
+                            downloadLink={'downloadLink'}
+                        />
+                    ))}
+                    {Array.from({ length: Math.max(0, 6 - (arts.result?.arts.length || 0)) }).map((_, index) => (
+                        <div className="h-28 w-[1400px]" key={index}></div>
+                    ))}
+                </>
+            )}
             <div className='flex items-center gap-2 justify-end'>
                 <button onClick={prevPage} disabled={page === 1}>
                     <img 
