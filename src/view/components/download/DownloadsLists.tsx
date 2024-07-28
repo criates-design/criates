@@ -10,7 +10,7 @@ export default function DownloadsLists() {
     const [page, setPage] = useState(1)
 
     const arts = useAsyncCallback(async (page: number) => {
-        return await client.getDownloadsList(page, requesterId)
+        return await client.getDownloadsList(page, requesterId, 6)
     })
 
     useEffect(() => {
