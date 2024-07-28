@@ -1,3 +1,5 @@
+import UnfoldComponent from './unfold/UnfoldComponent'
+
 type ArtDownloadProps = {
     status: 'em andamento' | 'concluido'
 }
@@ -27,7 +29,7 @@ export default function ArtDownload(props: ArtDownloadProps) {
       </div>
       </div>
       <div className='flex flex-row gap-2'>
-        <span className="rounded-3xl btn bg-criatesPurple px-10 text-white">Desdobrar</span>
+        <UnfoldComponent />
         <span className="rounded-3xl btn bg-criatesGreen px-10">Baixar</span>
       </div>
     </div>

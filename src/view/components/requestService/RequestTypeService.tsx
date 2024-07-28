@@ -6,19 +6,19 @@ import Video from './requestsTypes/Video'
 import IdentidadeVisual from './requestsTypes/IdentidadeVisual'
 
 type RequestTypeProps = {
-    type: string
+    artType: string
 }
 
 export default function RequestTypeService(RequestTypeProps: RequestTypeProps) {
-    const { type } = RequestTypeProps
+    const { artType } = RequestTypeProps
     return (
         <div>
-            {type === 'post' && <Post />}
-            {type === 'story' && <Story />}
-            {type === 'carrosel' && <Carrosel />}
-            {type === 'campanhaAds' && <CampanhaAds />}
-            {type === 'video' && <Video />}
-            {type === 'identidadeVisual' && <IdentidadeVisual/>}
+            {artType === 'post' && <Post />}
+            {artType === 'story' && <Story />}
+            {artType === 'carrosel' && <Carrosel />}
+            {artType === 'campanhaAds' && <CampanhaAds />}
+            {artType === 'video' && <Video />}
+            {artType === 'identidadeVisual' && <IdentidadeVisual/>}
         </div>
     )
 }

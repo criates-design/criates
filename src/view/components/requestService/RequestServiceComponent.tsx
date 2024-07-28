@@ -1,13 +1,15 @@
 'use client'
 import { useState } from 'react'
 import RequestTypeService from './RequestTypeService'
+import UnfoldService from '../download/unfold/UnfoldService'
 
 type RequestServiceProps = {
     totalCredits: number
+    typeRequest: 'SOLICITAR' | 'DESDOBRAR'
 }
 
 export default function RequestServiceComponent(RequestServiceProps: RequestServiceProps) {
-    const { totalCredits } = RequestServiceProps
+    const { totalCredits, typeRequest } = RequestServiceProps
     const [credits, setCredits] = useState(0)
     const [artType, setArtType] = useState('')
 
@@ -46,10 +48,21 @@ export default function RequestServiceComponent(RequestServiceProps: RequestServ
                 <button className="btn btn-sm btn-circle btn-ghost relative left-96 top-4">✕</button>
             </form>
             <div className="flex flex-col w-[80%] h-[90%] ml-8 mt-4">
-                <span className="font-medium text-2xl">Solicitar Serviço</span>
+                <span className="font-medium text-2xl">
+                    {typeRequest === 'SOLICITAR' && 'Solicitar Serviço'}
+                    {typeRequest === 'DESDOBRAR' && 
+                        <>
+                            <span>Desdobrar</span>
+                            <span className="ml-2 text-criatesPurple">Arte xyz</span>
+                        </>
+                    }
+                </span>
                 <label className="form-control w-full max-w-xs mt-5">
                     <div className="label">
-                        <span className="label-text text-base font-normal">O que vamos fazer hoje?</span>
+                        <span className="label-text text-base font-normal">
+                        {typeRequest === 'SOLICITAR' && 'O que vamos fazer hoje?'}
+                        {typeRequest === 'DESDOBRAR' && 'Vai desdobrar para:'}
+                            </span>
                     </div>
                     <select className="select w-[650px] h-[60px] text-[18px] px-7 mt-1" id="artType" defaultValue='' onChange={creditsValue}>
                         <option value='' disabled>Escolha uma opção</option>
@@ -62,7 +75,8 @@ export default function RequestServiceComponent(RequestServiceProps: RequestServ
                     </select>
                 </label>
 
-                <RequestTypeService type={artType} />
+                {typeRequest === 'SOLICITAR' && <RequestTypeService artType={artType} />}
+                {typeRequest === 'DESDOBRAR' && <UnfoldService/>}
 
                 <label className="form-control w-full mt-5">
                     <div className="label">

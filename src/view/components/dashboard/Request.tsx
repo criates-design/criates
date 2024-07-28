@@ -12,7 +12,7 @@ export default function RequestComponent() {
             </div>
 
             <dialog id="my_modal_1" className="modal">
-                <RequestServiceComponent totalCredits={0} />
+                <RequestServiceComponent totalCredits={0} typeRequest={'SOLICITAR'} />
             </dialog>
 
         </div>
