@@ -1,6 +1,12 @@
 import { prisma } from '@/lib/prisma/prismaClient'
+import { Art } from '@prisma/client'
 
-export default async function getArtsToDownload(page: number, requesterId: string) {
+export type DownloadArtsList = {
+    arts: Art[],
+    totalPages: number
+}
+
+export default async function getArtsToDownload(page: number, requesterId: string): Promise<DownloadArtsList> {
     const itemsPerPage = 6
     const skip = (page - 1) * itemsPerPage
 
@@ -13,5 +19,17 @@ export default async function getArtsToDownload(page: number, requesterId: strin
         take: itemsPerPage
     })
 
-    return arts
+    const totalItems = await prisma.art.count({
+        where: {
+            status: 'concluido',
+            requesterId: requesterId
+        }
+    })
+
+    const totalPages = Math.ceil(totalItems / itemsPerPage)
+
+    return {
+        arts,
+        totalPages
+    }
 }
