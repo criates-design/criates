@@ -9,7 +9,7 @@ export default function Dashboard() {
     return (
             <div className='flex gap-3 flex-col'>
                 <div className='flex gap-3'>
-                    <MyCreditsComponent credits={10} />
+                    <MyCreditsComponent credits={40} />
                     <RequestComponent />
                 </div>
                 <div className='flex gap-4'>
