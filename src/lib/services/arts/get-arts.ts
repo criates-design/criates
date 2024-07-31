@@ -6,8 +6,7 @@ export type ArtsList = {
     totalPages: number
 }
 
-export default async function getArts(page: number, requesterId: string): Promise<ArtsList> {
-    const itemsPerPage = 3
+export default async function getArts(page: number, requesterId: string, itemsPerPage: number): Promise<ArtsList> {
     const skip = (page - 1) * itemsPerPage
 
     const arts = await prisma.art.findMany({

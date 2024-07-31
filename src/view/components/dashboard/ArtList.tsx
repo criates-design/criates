@@ -10,7 +10,7 @@ export default function ArtList() {
     const [page] = useState(0)
 
     const arts = useAsyncCallback(async (page: number) => {
-        return await client.getArtsList(page, requesterId)
+        return await client.getArtsList(page, requesterId, 3)
     })
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export default function ArtList() {
         <div className='gap-2 flex'>
             {arts.loading ? (
                 Array.from({ length: 3 }).map((_, index) => (
-                    <div className="skeleton h-28 w-[1400px]" key={index}></div>
+                    <div className="skeleton w-[380px] h-[370px]" key={index}></div>
                 ))
             ) : (
                 <>
