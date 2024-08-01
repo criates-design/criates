@@ -2,44 +2,18 @@
 import { useState } from 'react'
 import RequestTypeService from './RequestTypeService'
 import UnfoldService from '../download/unfold/UnfoldService'
+import { useCredits } from '../Credits/CreditsProvider'
 
 type RequestServiceProps = {
     totalCredits: number
     typeRequest: 'SOLICITAR' | 'DESDOBRAR'
 }
 
-export default function RequestServiceComponent(RequestServiceProps: RequestServiceProps) {
-    const { totalCredits, typeRequest } = RequestServiceProps
-    const [credits, setCredits] = useState(0)
+export default function RequestServiceComponent({ totalCredits, typeRequest }: RequestServiceProps) {
     const [artType, setArtType] = useState('')
 
-    const creditsValue = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedArtType = event.target.value
-        setArtType(selectedArtType)
-
-        switch (artType) {
-            case 'post':
-                setCredits(2)
-                break
-            case 'story':
-                setCredits(3)
-                break
-            case 'carrosel':
-                setCredits(4)
-                break
-            case 'campanhaAds':
-                setCredits(5)
-                break
-            case 'video':
-                setCredits(6)
-                break
-            case 'identidadeVisual':
-                setCredits(7)
-                break
-            default:
-                setCredits(0)
-                break
-        }
+    const artTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setArtType(event.target.value)
     }
 
     return (
@@ -64,7 +38,7 @@ export default function RequestServiceComponent(RequestServiceProps: RequestServ
                         {typeRequest === 'DESDOBRAR' && 'Vai desdobrar para:'}
                             </span>
                     </div>
-                    <select className="select w-[650px] h-[60px] text-[18px] px-7 mt-1" id="artType" defaultValue='' onChange={creditsValue}>
+                    <select className="select w-[650px] h-[60px] text-[18px] px-7 mt-1" id="artType" defaultValue='' onChange={artTypeChange}>
                         <option value='' disabled>Escolha uma opção</option>
                         <option value='post'>Posts para redes sociais</option>
                         <option value='story'>Story para redes sociais</option>
@@ -76,7 +50,7 @@ export default function RequestServiceComponent(RequestServiceProps: RequestServ
                 </label>
 
                 {typeRequest === 'SOLICITAR' && <RequestTypeService artType={artType} />}
-                {typeRequest === 'DESDOBRAR' && <UnfoldService/>}
+                {typeRequest === 'DESDOBRAR' && <UnfoldService artType={artType} />}
 
                 <label className="form-control w-full mt-5">
                     <div className="label">
@@ -99,16 +73,15 @@ export default function RequestServiceComponent(RequestServiceProps: RequestServ
 
                     <div className="flex items-center gap-2 mt-1">
                         <div className="flex w-[650px] h-[60px] bg-white rounded-xl items-center">
-                            <span className="text-lg font-medium ml-6">{credits}</span>
+                            <span className="text-lg font-medium ml-6">{useCredits().credits}</span>
                             <div className="bg-black rounded-xl w-[50%] h-full ml-auto flex items-center cursor-pointer">
                                 <span className="text-white font-normal text-lg ml-auto mr-10">Solicitar</span>
                             </div>
                         </div>
-
                     </div>
                     <div className="flex gap-6 mt-5 font-light text-sm ml-1">
                         <span className="text-gray-400">Saldo após a compra</span>
-                        <span className="font-normal">{totalCredits - credits}</span>
+                        <span className="font-normal">{totalCredits - useCredits().credits}</span>
                     </div>
                 </label>
             </div>

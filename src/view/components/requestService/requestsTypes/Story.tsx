@@ -1,23 +1,30 @@
 import React, { useState } from 'react'
-
-export const storyCheckBox = (): boolean => {
-    const selectedOption = document.getElementById('okOption')?.id
-    if (selectedOption === 'okOption') {
-        return true
-    } else {
-        return false
-    }
-}
+import { useCredits } from '../../Credits/CreditsProvider'
 
 export default function Story() {
     const [isAnimated, setIsAnimated] = useState(false)
+    const { setCredits } = useCredits()
 
     const checkBoxBoolean = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedOption = event.target.id
+        const isChecked = event.target.checked
+
         if (selectedOption === 'okOption') {
-            setIsAnimated(event.target.checked)
+            if (isChecked) {
+                setIsAnimated(true)
+                setCredits(2)
+            } else {
+                setIsAnimated(false)
+                setCredits(1)
+            }
         } else {
-            setIsAnimated(!event.target.checked)
+            if (isChecked) {
+                setIsAnimated(false)
+                setCredits(1)
+            } else {
+                setIsAnimated(true)
+                setCredits(2)
+            }
         }
     }
 
