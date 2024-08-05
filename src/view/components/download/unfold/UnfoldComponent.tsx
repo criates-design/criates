@@ -1,5 +1,6 @@
 'use client'
 
+import { CreditsProvider } from '../../Credits/CreditsProvider'
 import RequestServiceComponent from '../../requestService/RequestServiceComponent'
 
 export default function UnfoldComponent() {
@@ -9,7 +10,9 @@ export default function UnfoldComponent() {
                 onClick={() => (document.getElementById('my_modal_1') as HTMLDialogElement).showModal()}>Desdobrar</span>
 
             <dialog id="my_modal_1" className="modal">
-                <RequestServiceComponent totalCredits={0} typeRequest={'DESDOBRAR'} />
+                <CreditsProvider>
+                    <RequestServiceComponent totalCredits={50} typeRequest={'DESDOBRAR'} />
+                </CreditsProvider>
             </dialog>
 
         </div>
