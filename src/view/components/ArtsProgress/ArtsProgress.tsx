@@ -8,9 +8,10 @@ import { Art } from '@prisma/client'
 export default function ArtsProgress() {
     const client = useClient()
     const [arts, setArts] = useState<Art[]>([])
+    const requesterId = 'clz5qp4uw0000hsen1c8quesr'
 
     const getArts = useAsyncCallback(async () => {
-        return await client.getArtsList(1, 'clz5qp4uw0000hsen1c8quesr', 10)
+        return await client.getArtsList(1,requesterId, 10)
     })
 
     useEffect(() => {
