@@ -2,7 +2,13 @@ import clsx from 'clsx'
 
 export type ArtProps = {
     name: string
-    status: 'em andamento' | 'revisao' | 'concluido'
+    status: ArtStatus
+}
+
+export enum ArtStatus {
+    EM_ANDAMENTO = 'em andamento',
+    REVISAO = 'revisao',
+    CONCLUIDO = 'concluido'
 }
 
 export default function Art(props: ArtProps) {
@@ -17,7 +23,7 @@ export default function Art(props: ArtProps) {
     return (
         <div className="bg-criatesGray p-10 gap-4 rounded-2xl w-80">
             <div className="flex flex-col gap-8">
-                <p className="text-xl">{name}</p>
+                <p className="text-xl line-clamp-2">{name}</p>
                 <div className="flex flex-row items-center gap-2">
                     <div className="flex justify-between w-full">
                         <div className="flex items-center gap-2">

@@ -1,18 +1,23 @@
-import { ArtProps } from './Art'
+'use client'
+import useClient from '@/lib/useClient'
 import ArtList from './ArtList'
+import { useAsyncCallback } from 'react-async-hook'
+import { useEffect, useState } from 'react'
+import { Art } from '@prisma/client'
 
 export default function ArtsProgress() {
-    const arts = [
-        { name: 'Logo', status: 'em andamento' },
-        { name: 'Banner', status: 'revisao' },
-        { name: 'Cartão de Visita', status: 'concluido' },
-        { name: 'Flyer', status: 'em andamento' },
-        { name: 'Folder', status: 'concluido' },
-        { name: 'Logo', status: 'em andamento' },
-        { name: 'Banner', status: 'revisao' },
-        { name: 'Flyer', status: 'em andamento' },
-        { name: 'Cartaz', status: 'revisao' },
-    ] as ArtProps[]
+    const client = useClient()
+    const [arts, setArts] = useState<Art[]>([])
+
+    const getArts = useAsyncCallback(async () => {
+        return await client.getArtsList(1, 'clz5qp4uw0000hsen1c8quesr', 10)
+    })
+
+    useEffect(() => {
+        getArts.execute().then(arts => {
+            setArts(arts.arts)
+        })
+    }, [])
 
     const artsEmAndamento = arts.filter(art => art.status === 'em andamento')
     const artsRevisao = arts.filter(art => art.status === 'revisao')
