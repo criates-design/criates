@@ -3,8 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import jwt, { JwtPayload } from 'jsonwebtoken'
 
 export async function middleware(req: NextRequest) {
-    const token = req.headers.get('Authorization')?.split(' ')[1]
-    console.log(token)
+    const token = sessionStorage.getItem('token')
 
     if (!token) {
         // Redirecionar para a página de login se o token não for fornecido

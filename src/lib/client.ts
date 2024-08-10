@@ -17,7 +17,8 @@ export default class Client {
       (config) => {
         const token = localStorage.getItem('token')  // Assumindo que o token está armazenado no localStorage
         if (token) {
-          config.headers['Authorization'] = `Bearer ${token}`
+          config.headers['Authorization'] = `${token}`
+          console.log('Token incluído na requisição')
         }
         return config
       },
@@ -30,11 +31,11 @@ export default class Client {
   async login(body: LoginUserParams) {
     const response = await this.axios.post('api/users/login', body)
     const token = response.data.token
-    console.log('Token:', token)
 
     // Armazena o token após o login
     if (token) {
       localStorage.setItem('token', token)
+      console.log('Token armazenado com sucesso')
     }
 
     return response.data
