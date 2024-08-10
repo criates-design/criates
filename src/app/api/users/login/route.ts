@@ -11,16 +11,22 @@ export async function POST(request: NextRequest) {
         }
 
         if (!password) {
-            return NextResponse.json({ error: 'Role is required' }, { status: 400 })
+            return NextResponse.json({ error: 'Password is required' }, { status: 400 })
         }
         
-        const user = await loginUser({
+        const loginResult = await loginUser({
             email,
             password
         })
+        
+        if (!loginResult) {
+            return NextResponse.json({ error: 'Login failed' }, { status: 401 })
+        }
+        
+        const { token, user } = loginResult
     
-        return NextResponse.json(user, { status: 200 })
+        return NextResponse.json({ token, user }, { status: 200 })
     } catch (error) {
-        return NextResponse.json({ error: error }, { status: 500 })
+        return NextResponse.json({ error: error}, { status: 500 })
     }
 }
