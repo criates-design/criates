@@ -5,8 +5,8 @@ type MyCreditsProps = {
 }
 
 export default function MyCreditsComponent({ credits }: MyCreditsProps) {
-
     return (
+
         <div className='bg-criatesGray w-[540px] h-[140px] rounded-2xl flex justify-center items-center font-carbona'>
             <span className='text-black ml-8 mb-1 text-5xl font-semibold cursor-default}'>{credits}</span>
             <span className='text-black text-base ml-3 cursor-default font-light'>Créditos</span>

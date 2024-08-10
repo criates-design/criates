@@ -3,7 +3,8 @@
 import { CreditsProvider } from '../Credits/CreditsProvider'
 import RequestServiceComponent from '../requestService/RequestServiceComponent'
 
-export default function RequestComponent() {
+export default async function RequestComponent() {
+
     return (
         <div className="bg-black w-[580px] h-[140px] rounded-2xl flex items-center font-carbona cursor-pointer"
             onClick={() => (document.getElementById('my_modal_1') as HTMLDialogElement).showModal()}>
@@ -14,7 +15,7 @@ export default function RequestComponent() {
 
             <dialog id="my_modal_1" className="modal">
                 <CreditsProvider>
-                    <RequestServiceComponent totalCredits={50} typeRequest={'SOLICITAR'} />
+                    <RequestServiceComponent totalCredits={ 0} typeRequest={'SOLICITAR'} />
                 </CreditsProvider>
             </dialog>
 
