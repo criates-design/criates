@@ -25,9 +25,9 @@ export default function ArtsProgress() {
 
     return (
         <div className="flex gap-16">
-            <ArtList status={'em andamento'} arts={artsEmAndamento} />
-            <ArtList status={'revisao'} arts={artsRevisao} />
-            <ArtList status={'concluido'} arts={artsConcluido} />
+            <ArtList status={'em andamento'} arts={artsEmAndamento} loading={getArts.loading || !getArts}/>
+            <ArtList status={'revisao'} arts={artsRevisao} loading={getArts.loading || !getArts}/>
+            <ArtList status={'concluido'} arts={artsConcluido} loading={getArts.loading || !getArts}/>
         </div>
     )
 }
