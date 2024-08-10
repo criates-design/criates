@@ -73,7 +73,7 @@ model VerificationToken {
 
 model Art {
   id          String    @id @default(cuid())
-  name        String
+  name        String    @default("Untitled")
   type        String
   status      String
   image       String[]
@@ -85,7 +85,7 @@ model Art {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   concludedAt DateTime?
-  downloaded  Boolean
+  downloaded  Boolean @default(false)
   downloadUrl String?
 
   requester   User      @relation("RequestedArts", fields: [requesterId], references: [id])
