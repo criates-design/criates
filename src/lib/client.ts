@@ -23,5 +23,5 @@ export default class Client {
   async getArtsList(page: number, requesterId: string, itemsPerPage: number): Promise<ArtsList> {
     return (await this.axios.get(`api/arts?page=${page}&requesterId=${requesterId}&itemsPerPage=${itemsPerPage}`)).data
   }
-
+  
 }
