@@ -2,29 +2,18 @@ import { useState } from 'react'
 import { useCredits } from '../../Credits/CreditsProvider'
 
 export default function Post() {
-    const [isAnimated, setIsAnimated] = useState(false)
+    const [selectedOption, setSelectedOption] = useState<string | null>(null)
     const { setCredits } = useCredits()
 
-    const checkBoxBoolean = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const selectedOption = event.target.id
-        const isChecked = event.target.checked
+    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const option = event.target.id
 
-        if (selectedOption === 'okOption') {
-            if (isChecked) {
-                setIsAnimated(true)
-                setCredits(2)
-            } else {
-                setIsAnimated(false)
-                setCredits(1)
-            }
+        if (selectedOption === option) {
+            setSelectedOption(null)
+            setCredits(0)
         } else {
-            if (isChecked) {
-                setIsAnimated(false)
-                setCredits(1)
-            } else {
-                setIsAnimated(true)
-                setCredits(2)
-            }
+            setSelectedOption(option)
+            setCredits(option === 'okOption' ? 2 : 1)
         }
     }
 
@@ -39,10 +28,10 @@ export default function Post() {
 
                 <div className="flex items-center gap-2 mt-1.5">
                     <input type="number"
-                        className="input input-bordered bg-white w-[75px]  h-[35px]" />
+                        className="input input-bordered bg-white w-[75px] h-[35px]" />
                     <span>X</span>
                     <input type="number"
-                        className="input input-bordered bg-white w-[75px]  h-[35px]" />
+                        className="input input-bordered bg-white w-[75px] h-[35px]" />
                 </div>
             </label>
 
@@ -55,9 +44,9 @@ export default function Post() {
 
                 <div className="flex items-center gap-2 mt-2">
                     <input
-                        onChange={checkBoxBoolean}
+                        onChange={handleCheckboxChange}
                         id="okOption"
-                        checked={isAnimated}
+                        checked={selectedOption === 'okOption'}
                         type="checkbox"
                         className="ml-1 checkbox checkbox-lg [--chkbg:#D3EB79] [--chkfg:white] checked:border-criatesGreen bg-white" />
                     <span className="mt-1 text-[18px] font-normal">Sim</span>
@@ -65,9 +54,9 @@ export default function Post() {
                     <input
                         type="checkbox"
                         id="notOption"
-                        onChange={checkBoxBoolean}
+                        onChange={handleCheckboxChange}
                         className="ml-12 checkbox checkbox-lg [--chkbg:#D3EB79] [--chkfg:white] checked:border-criatesGreen bg-white"
-                        checked={!isAnimated}
+                        checked={selectedOption === 'notOption'}
                     />
                     <span className="mt-1 text-[18px]">Não</span>
                 </div>

@@ -2,29 +2,18 @@ import React, { useState } from 'react'
 import { useCredits } from '../../Credits/CreditsProvider'
 
 export default function Story() {
-    const [isAnimated, setIsAnimated] = useState(false)
+    const [selectedOption, setSelectedOption] = useState<string | null>(null)
     const { setCredits } = useCredits()
 
-    const checkBoxBoolean = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const selectedOption = event.target.id
-        const isChecked = event.target.checked
+    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const option = event.target.id
 
-        if (selectedOption === 'okOption') {
-            if (isChecked) {
-                setIsAnimated(true)
-                setCredits(2)
-            } else {
-                setIsAnimated(false)
-                setCredits(1)
-            }
+        if (selectedOption === option) {
+            setSelectedOption(null)
+            setCredits(0)
         } else {
-            if (isChecked) {
-                setIsAnimated(false)
-                setCredits(1)
-            } else {
-                setIsAnimated(true)
-                setCredits(2)
-            }
+            setSelectedOption(option)
+            setCredits(option === 'okOption' ? 2 : 1)
         }
     }
 
@@ -40,18 +29,18 @@ export default function Story() {
                 <input
                     type="checkbox"
                     id="okOption"
-                    onChange={checkBoxBoolean}
+                    onChange={handleCheckboxChange}
                     className="ml-1 checkbox checkbox-lg [--chkbg:#D3EB79] [--chkfg:white] checked:border-criatesGreen bg-white"
-                    checked={isAnimated}
+                    checked={selectedOption === 'okOption'}
                 />
                 <span className="mt-1 text-[18px] font-normal">Sim</span>
 
                 <input
                     type="checkbox"
                     id="notOption"
-                    onChange={checkBoxBoolean}
+                    onChange={handleCheckboxChange}
                     className="ml-12 checkbox checkbox-lg [--chkbg:#D3EB79] [--chkfg:white] checked:border-criatesGreen bg-white"
-                    checked={!isAnimated}
+                    checked={selectedOption === 'notOption'}
                 />
                 <span className="mt-1 text-[18px]">Não</span>
             </div>
