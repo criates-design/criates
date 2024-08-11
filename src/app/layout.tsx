@@ -17,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html data-theme="light" lang="en">
+      <head>
+        <link rel="icon" href="/logo.svg" />
+      </head>
       <body className={inter.className}>
         <LayoutProvider>
           {children}
