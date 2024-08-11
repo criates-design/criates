@@ -4,9 +4,6 @@ import { ArtsList } from './services/arts/get-arts'
 import { User } from '@prisma/client'
 
 export default class Client {
-  static getCredits(requesterId: string) {
-      throw new Error('Method not implemented.')
-  }
   private axios: AxiosInstance 
 
   constructor() {

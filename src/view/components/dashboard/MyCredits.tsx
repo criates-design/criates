@@ -1,6 +1,6 @@
 'use client'
-import useClient from "@/lib/useClient"
-import { useEffect, useState } from "react"
+import useClient from '@/lib/useClient'
+import { useEffect, useState } from 'react'
 
 export default function MyCreditsComponent() {
     const client = useClient()
@@ -15,7 +15,6 @@ export default function MyCreditsComponent() {
             setCredits(res.credits ?? 0)
         })
     }, [])
-
 
     return (
         <div className='bg-criatesGray w-[540px] h-[140px] rounded-2xl flex justify-center items-center font-carbona'>
