@@ -76,6 +76,12 @@ const config: Config = {
         criatesGray: {
           DEFAULT: '#F2F2F2',
         },
+        criatesOrange: {
+          DEFAULT: '#E0A70B',
+        },
+        criatesNeonGreen: {
+          DEFAULT: '#0BE08B',
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
