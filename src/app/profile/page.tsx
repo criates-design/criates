@@ -22,7 +22,7 @@ export default function Profile() {
                     <ProfileOptionsComponent option={'Gerir a sua assinatura'}  />
                 </div>
                 <div className='flex flex-col gap-y-[25px]'>
-                    < ProfileCredits credits={10} />
+                    < ProfileCredits />
                     <ProfileUpgradePlanComponent />
                 </div>
             </div>

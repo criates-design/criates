@@ -1,9 +1,23 @@
-type ProfileCreditsProps = {
-    credits: number
-}
+'use client'
+import useClient from '@/lib/useClient'
+import { useEffect, useState } from 'react'
 
-export default function ProfileCredits(ProfileCreditsProps: ProfileCreditsProps) {
-    const { credits } = ProfileCreditsProps
+
+export default function ProfileCredits() {
+    const client = useClient()
+    const requesterId = 'clz5qp4uw0000hsen1c8quesr'
+    const [credits, setCredits] = useState(0)
+    
+    const user = async () => {
+        return await client.getUserCredits(requesterId)
+    }
+
+    useEffect(() => {
+        user().then((res) => {
+            setCredits(res.credits ?? 0)
+        })
+    }, [])
+
     return (
         <div className="bg-criatesGreen w-[300px] h-[165px] rounded-2xl flex justify-center flex-col">
             <div className="flex flex-col gap-1 justify-center items-center font-carbona">
