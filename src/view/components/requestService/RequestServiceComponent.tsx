@@ -22,7 +22,7 @@ export default function RequestServiceComponent({ typeRequest }: RequestServiceP
     }
 
     const handlePatchCredits = async () => {
-        return await client.patchCredits(requesterId, credits)
+        return await client.patchCredits(requesterId, (totalCredits-credits))
     }
 
     const user = async () => {
