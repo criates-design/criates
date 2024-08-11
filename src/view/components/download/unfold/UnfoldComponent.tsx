@@ -11,7 +11,7 @@ export default function UnfoldComponent() {
 
             <dialog id="my_modal_1" className="modal">
                 <CreditsProvider>
-                    <RequestServiceComponent totalCredits={50} typeRequest={'DESDOBRAR'} />
+                    <RequestServiceComponent typeRequest={'DESDOBRAR'} />
                 </CreditsProvider>
             </dialog>
 
