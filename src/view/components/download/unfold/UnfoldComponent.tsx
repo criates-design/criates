@@ -1,6 +1,6 @@
 'use client'
 
-import { CreditsProvider } from '../../credits/CreditsProvider'
+import { CreditsProvider } from '../../Credits/CreditsProvider'
 import RequestServiceComponent from '../../requestService/RequestServiceComponent'
 
 export default function UnfoldComponent() {

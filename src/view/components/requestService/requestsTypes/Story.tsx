@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useCredits } from '../../credits/CreditsProvider'
+import { useCredits } from '../../Credits/CreditsProvider'
 
 export default function Story() {
     const [isAnimated, setIsAnimated] = useState(false)

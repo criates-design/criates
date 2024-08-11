@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import RequestTypeService from './RequestTypeService'
 import UnfoldService from '../download/unfold/UnfoldService'
-import { useCredits } from '../credits/CreditsProvider'
+import { useCredits } from '../Credits/CreditsProvider'
 import useClient from '@/lib/useClient'
 
 type RequestServiceProps = {

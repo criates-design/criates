@@ -1,4 +1,4 @@
-import { useCredits } from '../../credits/CreditsProvider'
+import { useCredits } from '../../Credits/CreditsProvider'
 
 export default function Carrosel() {
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
