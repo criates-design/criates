@@ -16,6 +16,7 @@ export default function LoginComponent(LoginComponent: LoginComponentProps) {
 
     const handleLogin = async (email: string, password: string) => {
         await client.login({email, password})
+        // window.location.href = '/'
     }
     
     return (

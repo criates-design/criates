@@ -1,12 +1,20 @@
 'use client'
 
+import useClient from '@/lib/useClient'
 import { useRouter } from 'next/navigation'
 export default function SideDrawer() {
   const router = useRouter()
+  const client = useClient()
 
   const navigate = (path: string) => {
     router.push(path)
   }
+
+  const logout = async () => {
+    await client.logout()
+    router.push('/login')
+  }
+
   return (
     <div className="absolute h-full w-24 bg-criatesGray p-5 py-8 flex flex-col justify-between">
       <img src="logo.svg" />
@@ -29,7 +37,7 @@ export default function SideDrawer() {
           <button onClick={() => navigate('/profile')} className='hover:opacity-50'>
             <img src="user.svg" />
           </button>
-          <button onClick={() => navigate('/downloads')} className='hover:opacity-50'>
+          <button onClick={logout} className='hover:opacity-50'>
             <img src="exit.svg" />
           </button>
         </div>
