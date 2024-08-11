@@ -1,5 +1,4 @@
-import ArtsProgress from '@/view/components/ArtsProgress/ArtsProgress'
-
+import ArtsProgress from '@/view/components/artsProgress/ArtsProgress'
 export default function AllArts() {
     return (
         <ArtsProgress />
