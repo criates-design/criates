@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma/prismaClient'
 type User = {
     id: string
     name: string
+    credits: number
     email: string
     image: string
     role: string
@@ -22,6 +23,7 @@ export default async function getUserById(userId: string): Promise<User> {
         return {
             id: user.id,
             name: user.name!,
+            credits: user.credits!,
             email: user.email,
             image: user.image!,
             role: user.role,

@@ -9,7 +9,7 @@ export default function Home() {
     return (
             <div className='flex gap-3 flex-col'>
                 <div className='flex gap-3'>
-                    <MyCreditsComponent credits={40} />
+                    <MyCreditsComponent/>
                     <RequestComponent />
                 </div>
                 <div className='flex gap-4'>
