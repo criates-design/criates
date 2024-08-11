@@ -2,7 +2,6 @@
 import useClient from '@/lib/useClient'
 import { useEffect, useState } from 'react'
 
-
 export default function ProfileCredits() {
     const client = useClient()
     const requesterId = 'clz5qp4uw0000hsen1c8quesr'
