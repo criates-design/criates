@@ -12,7 +12,7 @@ export default function SideDrawer() {
       <img src="logo.svg" />
       <div className="flex justify-between h-5/6 flex-col">
         <div className="flex flex-col p-4 gap-14">
-          <button onClick={() => navigate('/dashboard')} className='hover:opacity-50'>
+          <button onClick={() => navigate('/')} className='hover:opacity-50'>
             <img src="dashboard-icon.svg" />
           </button>
           <button  className='hover:opacity-50'>
