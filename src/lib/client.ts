@@ -29,7 +29,7 @@ export default class Client {
   }
 
   async getUserCredits(requesterId: string): Promise<User> {
-    return (await this.axios.get(`api/users/${requesterId}`)).data
+    return (await this.axios.get(`api/users/${requesterId}`)).data.user
   }
 
   async patchCredits(requesterId: string, credits: number): Promise<User> {

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useCredits } from '../../Credits/CreditsProvider'
+import { useCredits } from '../../credits/CreditsProvider'
 
 export default function Post() {
     const [isAnimated, setIsAnimated] = useState(false)

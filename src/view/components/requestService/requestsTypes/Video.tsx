@@ -1,4 +1,4 @@
-import { useCredits } from '../../Credits/CreditsProvider'
+import { useCredits } from '../../credits/CreditsProvider'
 
 export default function Video() {
     const { setCredits } = useCredits()

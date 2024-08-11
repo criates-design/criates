@@ -1,10 +1,9 @@
 'use client'
 
-import { CreditsProvider } from '../Credits/CreditsProvider'
+import { CreditsProvider } from '../credits/CreditsProvider'
 import RequestServiceComponent from '../requestService/RequestServiceComponent'
 
-export default async function RequestComponent() {
-
+export default function RequestComponent() {
     return (
         <div className="bg-black w-[580px] h-[140px] rounded-2xl flex items-center font-carbona cursor-pointer"
             onClick={() => (document.getElementById('my_modal_1') as HTMLDialogElement).showModal()}>
@@ -15,7 +14,7 @@ export default async function RequestComponent() {
 
             <dialog id="my_modal_1" className="modal">
                 <CreditsProvider>
-                    <RequestServiceComponent totalCredits={ 0} typeRequest={'SOLICITAR'} />
+                    <RequestServiceComponent typeRequest={'SOLICITAR'} />
                 </CreditsProvider>
             </dialog>
 

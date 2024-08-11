@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useCredits } from '../../Credits/CreditsProvider'
+import { useCredits } from '../../credits/CreditsProvider'
 
 type UnfoldServiceProps = {
     artType: string

@@ -1,29 +1,39 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import RequestTypeService from './RequestTypeService'
 import UnfoldService from '../download/unfold/UnfoldService'
-import { useCredits } from '../Credits/CreditsProvider'
+import { useCredits } from '../credits/CreditsProvider'
 import useClient from '@/lib/useClient'
 
 type RequestServiceProps = {
-    totalCredits: number
     typeRequest: 'SOLICITAR' | 'DESDOBRAR'
 }
 
-export default function RequestServiceComponent({ totalCredits, typeRequest }: RequestServiceProps) {
+export default function RequestServiceComponent({ typeRequest }: RequestServiceProps) {
     const client = useClient()
-    const { credits } = useCredits()
+    const [totalCredits, setTotalCredits] = useState(0)
+    const { credits, setCredits } = useCredits()
     const requesterId = 'clz5qp4uw0000hsen1c8quesr'
     const [artType, setArtType] = useState('')
 
     const artTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setCredits(0)
         setArtType(event.target.value)
     }
 
     const handlePatchCredits = async () => {
-        console.log('patching credits')
         return await client.patchCredits(requesterId, credits)
     }
+
+    const user = async () => {
+        return await client.getUserCredits(requesterId)
+    }
+
+    useEffect(() => {
+        user().then((res) => {
+            setTotalCredits(res.credits ?? 0)
+        })
+    }, [])
 
     return (
         <div className="flex flex-col bg-criatesGray w-[45%] h-[95%] rounded-2xl font-carbona items-center">
