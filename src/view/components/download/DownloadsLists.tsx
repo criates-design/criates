@@ -45,7 +45,7 @@ export default function DownloadsLists() {
                         <ArtDownload 
                             key={art.id} 
                             status={art.status}
-                            artName={'arte'}
+                            artName={art.name}
                             createdAt={formatDate(art.createdAt)}
                             concludedAt={formatDate(art.createdAt)}
                             downloadLink={'downloadLink'}
