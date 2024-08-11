@@ -1,10 +1,20 @@
 'use client'
+import useClient from '@/lib/useClient'
+import { useEffect, useState } from 'react'
 
-type MyCreditsProps = {
-    credits: number
-}
+export default function MyCreditsComponent() {
+    const client = useClient()
+    const requesterId = 'clz5qp4uw0000hsen1c8quesr'
+    const [credits, setCredits] = useState(0)
+    const user = async () => {
+        return await client.getUserCredits(requesterId)
+    }
 
-export default function MyCreditsComponent({ credits }: MyCreditsProps) {
+    useEffect(() => {
+        user().then((res) => {
+            setCredits(res.credits ?? 0)
+        })
+    }, [])
 
     return (
         <div className='bg-criatesGray w-[540px] h-[140px] rounded-2xl flex justify-center items-center font-carbona'>

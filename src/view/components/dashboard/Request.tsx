@@ -14,7 +14,7 @@ export default function RequestComponent() {
 
             <dialog id="my_modal_1" className="modal">
                 <CreditsProvider>
-                    <RequestServiceComponent totalCredits={50} typeRequest={'SOLICITAR'} />
+                    <RequestServiceComponent typeRequest={'SOLICITAR'} />
                 </CreditsProvider>
             </dialog>
 

@@ -18,8 +18,8 @@ export default function Carrosel() {
             </div>
 
             <div className="flex items-center gap-2 mt-2">
-                <select className="select w-[650px] h-[60px] text-[18px] px-7 mt-1" id="artType" defaultValue='' onChange={creditsValue}>
-                    <option value='' disabled>Escolha uma opção</option>
+                <select className="select w-[650px] h-[60px] text-[18px] px-7 mt-1" id="artType" defaultValue='default' onChange={creditsValue}>
+                    <option value='default' disabled>Escolha uma opção</option>
                     {numbers.map((number) => (
                         <option  key={number} value={number}>{number}</option>
                     ))}
