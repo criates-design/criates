@@ -12,12 +12,11 @@ export default class Client {
       withCredentials: true
     })
 
-    // Adiciona o interceptor para incluir o token em todas as requisições
     this.axios.interceptors.request.use(
       (config) => {
-        const token = localStorage.getItem('token')  // Assumindo que o token está armazenado no localStorage
+        const token = localStorage.getItem('token')
         if (token) {
-          config.headers['Authorization'] = `${token}`
+          config.headers['Authorization'] = `Bearer ${token}`
           console.log('Token incluído na requisição')
         }
         return config
@@ -32,7 +31,6 @@ export default class Client {
     const response = await this.axios.post('api/users/login', body)
     const token = response.data.token
 
-    // Armazena o token após o login
     if (token) {
       localStorage.setItem('token', token)
       console.log('Token armazenado com sucesso')
@@ -47,5 +45,9 @@ export default class Client {
 
   async getArtsList(page: number, requesterId: string, itemsPerPage: number): Promise<ArtsList> {
     return (await this.axios.get(`api/arts?page=${page}&requesterId=${requesterId}&itemsPerPage=${itemsPerPage}`)).data
+  }
+
+  async logout() {
+    return this.axios.get('api/logout')
   }
 }
